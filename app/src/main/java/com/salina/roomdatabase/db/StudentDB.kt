@@ -4,16 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.salina.roomdatabase.dao.StudentDAO
 import com.salina.roomdatabase.dao.UserDAO
+import com.salina.roomdatabase.entity.Student
 import com.salina.roomdatabase.entity.User
 
 @Database(
-    entities = [(User::class)],
+    entities = [(User::class), (Student::class)],
     version = 1
 )
 abstract class StudentDB : RoomDatabase(){
     abstract fun getUserDAO(): UserDAO
-
+    abstract fun getStudentDAO(): StudentDAO
     companion object {
         @Volatile
         private var instance: StudentDB? = null

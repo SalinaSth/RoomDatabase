@@ -21,6 +21,46 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:layout_margin="10dp"/>
+
+    <EditText
+        android:id="@+id/etUpdateGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+<!--    <RadioGroup-->
+<!--        android:id="@+id/rdoUpdateGrp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp">-->
+<!--        <RadioButton-->
+<!--            android:id="@+id/rbtnUptMale"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Male"-->
+<!--            android:textSize="20sp"/>-->
+<!--        <RadioButton-->
+<!--            android:id="@+id/rbtnUptFemale"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Female"-->
+<!--            android:textSize="20sp"/>-->
+<!--        <RadioButton-->
+<!--            android:id="@+id/rbtnUptOthers"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Others"-->
+<!--            android:textSize="20sp"/>-->
+<!--    </RadioGroup>-->
+
+    <EditText
+        android:id="@+id/etUpdateAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"

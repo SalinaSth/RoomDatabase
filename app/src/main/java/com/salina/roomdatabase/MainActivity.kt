@@ -13,6 +13,13 @@ import android.widget.Toast
 import androidx.core.text.set
 import androidx.core.text.toSpannable
 import com.google.android.material.textfield.TextInputLayout
+import com.salina.roomdatabase.db.StudentDB
+import com.salina.roomdatabase.entity.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var text_input_usName: TextInputLayout
@@ -50,8 +57,24 @@ class MainActivity : AppCompatActivity() {
         tvSignup.movementMethod = LinkMovementMethod()
         tvSignup.text = text
     }
-    private fun login(){
-        val intent = Intent(this, DashboardBtnActivity::class.java)
-        startActivity(intent)
+    private fun login() {
+        val username = text_input_pwd.editText?.text.toString()
+        val password = text_input_pwd.editText?.text.toString()
+        var user: User? = null
+        CoroutineScope(Dispatchers.IO).launch {
+            user = StudentDB
+                    .getInstance(this@MainActivity)
+                    .getUserDAO()
+                    .checkUser(username, password)
+            if (user == null) {
+                withContext(Main) {
+                    Toast.makeText(this@MainActivity, "Invalid credentials", Toast.LENGTH_SHORT)
+                            .show()
+                }
+            } else {
+                startActivity(Intent(this@MainActivity,
+                        DashboardBtnActivity::class.java))
+            }
+        }
     }
 }
